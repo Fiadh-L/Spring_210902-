@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans
+							http://www.springframework.org/schema/beans/spring-beans.xsd"
+							xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+							xmlns="http://www.springframework.org/schema/beans">
+							
+	<bean class="kr.co.softsoldesk.beans.TestBean"/>
+	<bean id="test1" class="kr.co.softsoldesk.beans.TestBean"/>
+	
+	<bean id="test3" class="kr.co.softsoldesk.beans.TestBean" lazy-init="true"/>
+	
+	<bean id="test4" class="kr.co.softsoldesk.beans.TestBean" scope="prototype"/>
+</beans>
+							
