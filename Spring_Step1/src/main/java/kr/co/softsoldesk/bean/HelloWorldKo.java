@@ -1,0 +1,10 @@
+package kr.co.softsoldesk.bean;
+
+public class HelloWorldKo implements HelloWorld{
+	
+	@Override
+	public void sayhello() {
+		// TODO Auto-generated method stub
+		System.out.println("안녕하세요");
+	}
+}
