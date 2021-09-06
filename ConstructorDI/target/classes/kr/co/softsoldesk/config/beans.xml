@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans
+							http://www.springframework.org/schema/beans/spring-beans.xsd"
+							xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+							xmlns="http://www.springframework.org/schema/beans"
+							default-init-method="default_init" default-destroy-method="default_destroy">
+							
+	<bean id="obj1" class="kr.co.softsoldesk.beans.TestBean1" lazy-init="true"/>
+	<bean id="obj2" class="kr.co.softsoldesk.beans.TestBean1" lazy-init="true">
+		<constructor-arg type="int" value="100"/>
+	</bean>
+	<bean id="obj3" class="kr.co.softsoldesk.beans.TestBean1" lazy-init="true">
+		<constructor-arg type="double" value="11.11"/>
+	</bean>
+	<bean id="obj4" class="kr.co.softsoldesk.beans.TestBean1" lazy-init="true">
+		<constructor-arg type="java.lang.String" value="spring"/>
+	</bean>
+	<bean id="obj5" class="kr.co.softsoldesk.beans.TestBean1" lazy-init="true">
+		<constructor-arg type="int" value="2021"/>
+		<constructor-arg type="double" value="11.11"/>
+		<constructor-arg type="java.lang.String" value="종강"/>
+	</bean>
+	<bean id="obj6" class="kr.co.softsoldesk.beans.TestBean1" lazy-init="true">
+		<constructor-arg type="double" value="11.11"/>
+		<constructor-arg type="java.lang.String" value="종강"/>
+		<constructor-arg type="int" value="2021"/>
+	</bean>
+	<bean id="obj7" class="kr.co.softsoldesk.beans.TestBean1" lazy-init="true">
+		<constructor-arg type="double" value="11.11" index="1"/>
+		<constructor-arg type="java.lang.String" value="종강" index="2"/>
+		<constructor-arg type="int" value="2021" index="0"/>
+	</bean>
+	
+	<bean id="obj8" class="kr.co.softsoldesk.beans.TestBean2" lazy-init="true">
+		<!--  1번째 매개변수 -->
+		<constructor-arg>
+			<bean class="kr.co.softsoldesk.beans.DataBean"></bean>
+		</constructor-arg>
+		<!-- 2번째 매개변수 -->
+		<constructor-arg>
+			<bean class="kr.co.softsoldesk.beans.DataBean"></bean>
+		</constructor-arg>
+	</bean>
+	
+	
+		
+</beans>
+<!-- 
+	<bean id="data_bean" class="kr.co.softsoldesk.beans.DataBean" scope="prototype"/>
+	<bean id="obj9" class="kr.co.softsoldesk.beans.DataBean" lazy-init="true">
+	<constructor-arg ref="data_bean"/>
+	<constructor-arg ref="data_bean"/>
+	</bean>
+	 -->
+

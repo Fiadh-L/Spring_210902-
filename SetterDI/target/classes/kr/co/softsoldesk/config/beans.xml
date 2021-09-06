@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans
+							http://www.springframework.org/schema/beans/spring-beans.xsd"
+							xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+							xmlns="http://www.springframework.org/schema/beans"
+							default-init-method="default_init" default-destroy-method="default_destroy">
+							
+	<bean id="t1" class="kr.co.softsoldesk.beans.TestBean">
+		<property name="data1" value="100"/>
+		<property name="data2" value="1004.00"/>
+		<property name="data3" value="true"/>
+		<property name="data4" value="summer"/>
+		
+		<!-- 객체 선언 -->
+		<property name="data5">
+			<bean class="kr.co.softsoldesk.beans.DataBean"/>
+		</property>
+		
+		<!-- 이미 만들어져 있는 객체 생성 -->
+		<property name="data6" ref="data_bean"/>
+	</bean>
+	
+	<bean id="data_bean" class="kr.co.softsoldesk.beans.DataBean"/>
+
+	<bean id="tv" class="kr.co.softsoldesk.beans.SamsungTV"> 
+		<property name="speaker">
+			<bean class="kr.co.softsoldesk.beans.AppleSpeaker"/>
+		</property>
+		<property name="price" value="27000000"/>
+	</bean>
+	
+</beans>
