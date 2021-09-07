@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans
+							http://www.springframework.org/schema/beans/spring-beans.xsd
+							http://www.springframework.org/schema/context
+							http://www.springframework.org/schema/context/spring-context.xsd"
+							xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+							xmlns="http://www.springframework.org/schema/beans"
+							xmlns:context="http://www.springframework.org/schema/context">
+							
+	<context:annotation-config/>
+	<bean class="kr.co.softsoldesk.beans.TestBean1"/>	
+	
+	<bean id="xml2" class="kr.co.softsoldesk.beans.TestBean2"/>	
+	<bean id="xml3" class="kr.co.softsoldesk.beans.TestBean2"/>
+	
+	<!-- 지정된 패키지 안에 있는 Bean클래스들의 어노테이션을 분석하도록 지정 -->
+	<context:component-scan base-package="kr.co.softsoldesk.beans2"/>
+	
+	<bean id="xml100" class="kr.co.softsoldesk.beans2.TestBean4"/>
+	<bean id="xml200" class="kr.co.softsoldesk.beans2.TestBean4"/>
+	
+	<context:component-scan base-package="kr.co.softsoldesk.beans3"/>
+</beans>
+							

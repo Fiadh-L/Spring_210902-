@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans
+							http://www.springframework.org/schema/beans/spring-beans.xsd"
+							xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+							xmlns="http://www.springframework.org/schema/beans">
+	
+	<bean id="xml1" class="kr.co.softsoldesk.beans.TestBean1"/>
+	
+	<bean id="xml2" class="kr.co.softsoldesk.beans.TestBean2" lazy-init="true"/>
+	
+	<bean id="xml3" class="kr.co.softsoldesk.beans.TestBean3" scope='prototype'/>
+
+	<bean class="kr.co.softsoldesk.beans.TestBean4"/>
+	<!-- 타입형식으로 같은 클래스를 참조했을 때 오류 발생 // 아이디없이 중목 참조할때는 primary="true"를 선언한다.-->
+	<bean class="kr.co.softsoldesk.beans.TestBean4" primary="true"/>
+	
+</beans>							
