@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans
+							http://www.springframework.org/schema/beans/spring-beans.xsd
+							http://www.springframework.org/schema/context
+							http://www.springframework.org/schema/context/spring-context.xsd
+							http://www.springframework.org/schema/aop
+							http://www.springframework.org/schema/aop/spring-aop.xsd"
+							xmlns="http://www.springframework.org/schema/beans"
+							xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+							xmlns:context="http://www.springframework.org/schema/context"
+							xmlns:aop="http://www.springframework.org/schema/aop">
+	
+	<bean id="xml1" class="kr.co.softsoldesk.beans.TestBean1"/>
+	<bean id="xml3" class="kr.co.softsoldesk.beans2.TestBean1"/>
+	<bean id="xml2" class="kr.co.softsoldesk.beans.TestBean2"/>
+	<bean id="advisor1" class="kr.co.softsoldesk.advisor.AdvisorClass"/>			
+	
+	<aop:config >
+		<aop:aspect ref="advisor1">
+	<!-- 	<aop:pointcut id="point1" expression="execution(void kr.co.softsoldesk.beans.TestBean1.method1())" />
+		int형 1개
+		<aop:pointcut id="point1" expression="execution(void kr.co.softsoldesk.beans.TestBean1.method1(int))"/>
+		<aop:pointcut id="point1" expression="execution(void kr.co.softsoldesk.beans.TestBean1.method1(java.lang.String))"/>
+		<aop:pointcut id="point1" expression="execution(void kr.co.softsoldesk.beans.TestBean1.method1(int, java.lang.String))"/>
+		<aop:pointcut id="point1" expression="execution(void kr.co.softsoldesk.beans.TestBean1.method1(int,int))"/>
+		모든 타입의 매개변수가 1개인 메서드 
+		<aop:pointcut id="point1" expression="execution(void kr.co.softsoldesk.beans.TestBean1.method1(*))"/>
+		모든 타입의 매개변수가 2개인 메서드 
+		<aop:pointcut id="point1" expression="execution(void kr.co.softsoldesk.beans.TestBean1.method1(*.*))"/>
+		모든 타입의 매개변수가 없는 모든 메서드 
+		<aop:pointcut id="point1" expression="execution(void kr.co.softsoldesk.beans.TestBean1.method1(..))"/>
+		TestBean1의 모든 메서드 중 매개변수가 없는 것
+		<aop:pointcut id="point1" expression="execution(void kr.co.softsoldesk.beans.TestBean1.*(..))"/> -->
+		<!-- 반환타입이 void이고 kr.co.softsoldesk.beans 패키지내의 모든 클래스에 대하여 이름이 method1이고 매개변수 없음 -->
+		<aop:pointcut id="point1" expression="execution(void kr.co.softsoldesk.beans.*.method1(..))"/>
+		<!-- 모든클래스에 대해서 매개변수가 없는 모든 메서드 -->
+		<!-- <aop:pointcut id="point1" expression="execution(void kr.co.softsoldesk.beans.*.*(..))"/> -->
+		<!-- 모든 패키지에 모든 클래스에 모든 메서드 -->
+		<aop:pointcut id="point1" expression="execution(void *.*(..))"/>
+		<!-- 모든 반환타입, 모든 패키지,모든 클래스, 모든 메서드 -->
+		<aop:pointcut id="point1" expression="execution(* *.*(..))"/>
+		
+		<aop:before method="beforeMethod" pointcut-ref="point1"/>
+		</aop:aspect>
+	</aop:config>
+</beans>
+							
